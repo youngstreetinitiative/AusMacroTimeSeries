@@ -1,0 +1,2 @@
+# AusMacroTimeSeries
+Australia
