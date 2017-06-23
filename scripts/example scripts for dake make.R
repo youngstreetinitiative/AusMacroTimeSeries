@@ -18,7 +18,7 @@ for (n in seq_along(df_list)) {
   temp_df <- date_maker_loop(df_list[[n]])
 
   message(names(df_list[n]))
-  assign(names(df_list[n]), temp_df)
+  assign(names(df_list[n]), temp_df, envir = .GlobalEnv)
 
 }
 
