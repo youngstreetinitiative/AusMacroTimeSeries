@@ -21,4 +21,7 @@ date_maker_list <- function(df_list) {
     map(~mutate(.,
                 Date = as.Date(Date, format = "%d/%m/%Y")))
 
+  invisible(lapply(names(df_list),function(x) assign(x,df_list[[x]],.GlobalEnv)))
+
+  df_list
 }
