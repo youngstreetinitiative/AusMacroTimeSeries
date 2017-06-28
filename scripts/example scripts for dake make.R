@@ -24,6 +24,9 @@ for (n in seq_along(df_list)) {
 
 # date maker example 2
 
+class(LabourMob$Date)
 
 df_list <- date_maker_list(df_list)
+
+class(LabourMob$Date)
 
