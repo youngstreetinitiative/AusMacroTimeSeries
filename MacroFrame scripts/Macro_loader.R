@@ -4,13 +4,10 @@
 #' @return A data frame
 #' @export
 
-
 macro_loader<- function(){
   library(lubridate)
   library(timemerge)
   df_list<-csv_prep()
-
-
 
 test_fun <- function(df) {
   df %>%
@@ -20,7 +17,6 @@ test_fun <- function(df) {
     binner(Date, Cats, Vals, "quarter", method = "avg") %>%
     select(-Count)
 }
-
 out_df_list <- list()
 j <- 1
 for (n in df_list) {
