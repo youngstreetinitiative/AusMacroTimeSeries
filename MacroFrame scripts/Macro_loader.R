@@ -21,6 +21,7 @@ out_df_list <- list()
 j <- 1
 for (n in df_list) {
   out_df_list[[j]] <- test_fun(n)
+
   j <- j + 1
 }
 out1 <- out_df_list[[1]]
@@ -28,7 +29,6 @@ all_done <<- out_df_list %>%
   bind_rows()
 final<<-spread(all_done, Cats, Total)
 }
-
 
 
 
@@ -46,16 +46,6 @@ final<<-spread(all_done, Cats, Total)
  # House_Index <- read.csv("C:/Users/User/Dropbox (YSI)/YSI Team Folder/Content/Economy/Time series csv's/House Index.csv", header = TRUE, sep =",")
  # LabourMob_Ind <- read.csv("C:/Users/User/Dropbox (YSI)/YSI Team Folder/Content/Economy/Time series csv's/Labour Mobility By Industry.csv", header = TRUE, sep =",")
  # LabourMob <- read.csv("C:/Users/User/Dropbox (YSI)/YSI Team Folder/Content/Economy/Time series csv's/LabourMobility.csv", header = TRUE, sep =",")
-
-
-
-
-
-
-
-
-
-
  #
  # quarterly_macro$Date <- as.Date(quarterly_macro$Date, format = "%d/%m/%Y" )
  # Employment_ceasing$Date <- as.Date(Employment_ceasing$Date, format = "%d/%m/%Y" )
@@ -88,10 +78,6 @@ final<<-spread(all_done, Cats, Total)
  # LabourMob <<- LabourMob
  #
  # df_list <- list(quarterly_macro,Employment_ceasing, Employment_Industy,LabourForce,population1,weekly_earnings,RandD,Underemployment,WPI_Industry,Foreign_Investment,Bonds,House_Index,LabourMob_Ind,LabourMob)
-
-
-
-
 
 
 
