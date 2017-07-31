@@ -3,3 +3,4 @@
 export(csv_prep)
 export(date_maker_list)
 export(date_maker_loop)
+export(macro_loader)
