@@ -50,7 +50,7 @@ a<- ggplot(data = quarterlymacrodata )              +
   theme(legend.position=c(.1,.85))
 
 
-a<- ggplot(data = quarterlymacrodata )              +
+b<- ggplot(data = quarterlymacrodata )              +
   ylab('index')                                 +
   geom_line(aes(x=Date, y=RBA.cash.rate , col='cashrate'),  size=1, alpha=.5)  +
   geom_line(aes(x=Date, y=(wage.growth)*100, col = "Real Wage"),  size=1, alpha=.5) +

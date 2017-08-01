@@ -25,9 +25,11 @@ for (n in df_list) {
   j <- j + 1
 }
 out1 <- out_df_list[[1]]
-all_done <<- out_df_list %>%
+longform <<- out_df_list %>%
   bind_rows()
-final<<-spread(all_done, Cats, Total)
+spreadform<<-spread(longform, Cats, Total)
+colnames(spreadform)[colnames(spreadform)=="bin_id"] <- "Date"
+spreadform$Date <- as.Date(spreadform$Date)
 }
 
 
