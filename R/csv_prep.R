@@ -3,9 +3,9 @@
 csv_prep <- function() {
 
 
-  paths_vec <- list.files("C:/Users/User/Dropbox (YSI)/YSI Team Folder/Content/Economy/Macroeconomic Indicators/Data/Time series csv's/",
+  paths_vec <- list.files("C:/Users/User/Dropbox (YSI)/YSI Team Folder/Content/Economy/Macroeconomic Analysis/Data/Time series csv's/",
                           full.names = T)
-  names_vec <- list.files("C:/Users/User/Dropbox (YSI)/YSI Team Folder/Content/Economy/Macroeconomic Indicators/Data/Time series csv's/",
+  names_vec <- list.files("C:/Users/User/Dropbox (YSI)/YSI Team Folder/Content/Economy/Macroeconomic Analysis/Data/Time series csv's/",
                           full.names = F) %>% str_replace(".csv", "")
 
   # step 1

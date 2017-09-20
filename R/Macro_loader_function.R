@@ -9,27 +9,35 @@ macro_loader<- function(){
   library(timemerge)
   df_list<-csv_prep()
 
-test_fun <- function(df) {
-  df %>%
-    mutate(Date = parse_date_time2(as.character(Date), orders = "%Y/%m/%d")) %>%
-    group_by(Date) %>%
-    gather(Cats, Vals, 2:length(.)) %>%
-    binner(Date, Cats, Vals, "quarter", method = "avg") %>%
-    select(-Count)
-}
-out_df_list <- list()
-j <- 1
-for (n in df_list) {
-  out_df_list[[j]] <- test_fun(n)
+  test_fun <- function(df) {
+    df %>%
+      mutate(Date = parse_date_time2(as.character(Date), orders = "%Y/%m/%d")) %>%
+      group_by(Date) %>%
+      gather(Cats, Vals, 2:length(.)) %>%
+      binner(Date, Cats, Vals, "quarter", method = "avg") %>%
+      select(-Count)
+  }
 
-  j <- j + 1
-}
-out1 <- out_df_list[[1]]
-longform <<- out_df_list %>%
-  bind_rows()
-spreadform<<-spread(longform, Cats, Total)
-colnames(spreadform)[colnames(spreadform)=="bin_id"] <- "Date"
-spreadform$Date <- as.Date(spreadform$Date)
+  out_df_list <- list()
+
+  j <- 1
+
+  for (n in df_list) {
+    out_df_list[[j]] <- test_fun(n)
+
+    j <- j + 1
+
+  }
+  out1 <- out_df_list[[1]]
+
+  longform <<- out_df_list %>%
+    bind_rows()
+
+  spreadform<<-spread(longform, Cats, Total)
+
+  colnames(spreadform)[colnames(spreadform)=="bin_id"] <- "Date"
+
+  spreadform$Date <- as.Date(spreadform$Date)
 }
 
 
